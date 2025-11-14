@@ -135,7 +135,7 @@
     "resetMocks": true
   },
   "babel": {
-    "plugin": [
+    "plugins": [
       [
         "@babel/plugin-proposal-decorators",
         {
@@ -146,7 +146,7 @@
     ],
     "presets": [
       "react-app",
-      "babel/preset-env"
+      "@babel/preset-env"
     ]
   },
   "devDependencies": {
