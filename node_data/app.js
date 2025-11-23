@@ -23,7 +23,6 @@ app.use(bodyParser.json()); // 解析 application/json 格式的请求体
 // 写接口
 app.post("/login", (req, res) => {
   // let { username, password } = req.body;
-  console.log(req.body);
   let useInfo = {
     id: 8,
     username: "guo",
