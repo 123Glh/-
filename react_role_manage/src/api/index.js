@@ -1,6 +1,9 @@
 import user from "./user";
 import role from "./role";
-export default {
+
+const api = {
   user,
   role,
 };
+
+export default api;
