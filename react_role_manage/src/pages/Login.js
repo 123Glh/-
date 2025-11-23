@@ -2,12 +2,18 @@ import { Component } from "react";
 import { Layout } from "antd";
 import { Button, Checkbox, Form, Input } from "antd";
 import "./login.css";
+import axios from "../util/axios";
+import api from "../api";
 const { Header, Content, Footer } = Layout;
 class Login extends Component {
   render() {
     const onFinish = (values) => {
-      let { username, password } = values;
+      // let { username, password } = values;
       // 把 usename 和 password 发送到服务端
+      // 在mobx中发送到服务器请求
+      axios.post(api.user.useLogin, values).then((res) => {
+        console.log(res);
+      });
       console.log("Success:", values);
     };
     const onFinishFailed = (errorInfo) => {

@@ -3,6 +3,17 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 
 const app = express();
+
+// 跨域问题
+app.all("*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By", " 3.2.1");
+  res.header("Content-Type", "application/json;charset=utf-8");
+  next();
+});
+
 // 相关配置
 app.use(logger("dev"));
 app.use(express.static(__dirname + "/public"));
@@ -10,9 +21,9 @@ app.use(bodyParser.urlencoded({ extended: false })); // 解析 application/x-www
 app.use(bodyParser.json()); // 解析 application/json 格式的请求体
 
 // 写接口
-app.get("/login", (req, res) => {
-  let { username, password } = req.body;
-  console.log(username, password);
+app.post("/login", (req, res) => {
+  // let { username, password } = req.body;
+  console.log(req.body);
   let useInfo = {
     id: 8,
     username: "guo",
@@ -51,6 +62,6 @@ app.get("/login", (req, res) => {
 });
 
 // 相关模块配置
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(8888, () => {
+  console.log("Server is running on port 8888");
 });
